@@ -6,6 +6,7 @@
         <th>Subtitle</th>
         <th>Body</th>
         <th >Thumb Image</th>
+        <th colspan ="3">Action</th>
       </tr>
   </thead>
   <tbody>
@@ -15,7 +16,11 @@
         <td><%= item.subtitle%></td>
         <td><%= item.body%></td>
         <td><%= image_tag item.thumb_image unless item.thumb_image.nil?%></td>
+        <td><%= link_to "Show", item%></td>
+        <td><%= link_to "Edit", edit_portfolio_path(item)%></td>
+        <td><%= link_to "Destroy", item, method: :delete,data: { confirm: 'Are you sure?' }%></td>
       <% end %>
     </tr>
   </tbody>
 </table>
+<%= link_to "Create New Portfolio", new_portfolio_path %>

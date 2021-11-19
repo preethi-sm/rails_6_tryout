@@ -5,6 +5,9 @@ class PortfoliosController < ApplicationController
     @portfolio_items = Portfolio.all
   end
 
+  def show
+  end
+
   def new
     @portfolio = Portfolio.new
   end
@@ -27,7 +30,22 @@ class PortfoliosController < ApplicationController
   end
 
   def update
+    respond_to do |format|
+      if @portfolio.update(portfolio_params)
+        format.html { redirect_to @portfolio, notice: "portfolio was successfully updated." }
 
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+
+      end
+    end
+  end
+
+  def destroy
+    @portfolio.destroy
+    respond_to do |format|
+      format.html {redirect_to portfolios_path, notice: "Portfolio was successfully destroyed."}
+    end
   end
 
   private
