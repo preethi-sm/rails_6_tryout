@@ -1,0 +1,21 @@
+<h1>Portfolio Items </h1>
+<table>
+  <thead>
+      <tr>
+        <th>Title</th>
+        <th>Subtitle</th>
+        <th>Body</th>
+        <th >Thumb Image</th>
+      </tr>
+  </thead>
+  <tbody>
+      <% @portfolio_items.each do |item| %>
+      <tr>
+        <td><%= item.title%></td>
+        <td><%= item.subtitle%></td>
+        <td><%= item.body%></td>
+        <td><%= image_tag item.thumb_image%></td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
