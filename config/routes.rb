@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :portfolios, except: [:show]
 
+  get 'angular-items', to: "portfolios#angular_items"
+  get 'ror-items', to: "portfolios#ror_items"
   get 'portfolio/:id',to: "portfolios#show", as: "portfolio_show"
 
   # post 'toggle_blog_status/:id', to: "blogs#toggle_status", as: 'toggle_blog_status'
