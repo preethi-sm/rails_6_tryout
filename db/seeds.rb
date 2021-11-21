@@ -8,11 +8,11 @@
 
 3.times do |t|
   Topic.create!(
-    title: "Topic #{t+1}"
+    title: "Topic #{t + 1}"
   )
 end
 
-puts "created 3 topics"
+puts 'created 3 topics'
 # Creating blogs
 10.times do |i|
   Blog.create!(
@@ -21,36 +21,41 @@ puts "created 3 topics"
     topic_id: Topic.last.id
   )
 end
- puts "Created 10 blogs "
-#Skills
+puts 'Created 10 blogs '
+# Skills
 5.times do |j|
   Skill.create!(
     title: "Skill #{j}",
-    percent_utilized: j*5
+    percent_utilized: j * 5
   )
 end
 
-puts "Created 5 Skills"
+puts 'Created 5 Skills'
 
-#Portfolio
+# Portfolio
 7.times do |p|
-Portfolio.create!(
-  title: "Portfolio title #{p}",
-  subtitle: "Ruby on rails",
-  body: "sdfsdfjhfjkshfierusdfjdsfjsd",
-  main_image:"http://placehold.it/600x400",
-  thumb_image:"http://placehold.it/250x200"
-)
+  Portfolio.create!(
+    title: "Portfolio title #{p}",
+    subtitle: 'Ruby on rails',
+    body: 'sdfsdfjhfjkshfierusdfjdsfjsd',
+    main_image: 'http://placehold.it/600x400',
+    thumb_image: 'http://placehold.it/250x200'
+  )
 end
 
 2.times do |p|
   Portfolio.create!(
     title: "Portfolio title #{p}",
-    subtitle: "Angular",
-    body: "sdfsdfjhfjkshfierusdfjdsfjsd",
-    main_image:"http://placehold.it/600x400",
-    thumb_image:"http://placehold.it/250x200"
+    subtitle: 'Angular',
+    body: 'sdfsdfjhfjkshfierusdfjdsfjsd',
+    main_image: 'http://placehold.it/600x400',
+    thumb_image: 'http://placehold.it/250x200'
   )
-  end
-puts "created 9 portfolios"
+end
+puts 'created 9 portfolios'
 
+3.times do |t|
+  Portfolio.last.technologies.create!(
+    name: "Tech #{t}"
+  )
+end
