@@ -10,17 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_20_114513) do
+ActiveRecord::Schema.define(version: 2021_11_21_050205) do
 
   create_table "blogs", force: :cascade do |t|
     t.string "title"
-    t.string "string"
     t.text "body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "slug"
     t.integer "status", default: 0
+    t.integer "topic_id", null: false
     t.index ["slug"], name: "index_blogs_on_slug", unique: true
+    t.index ["topic_id"], name: "index_blogs_on_topic_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -69,4 +70,5 @@ ActiveRecord::Schema.define(version: 2021_11_20_114513) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "blogs", "topics"
 end
